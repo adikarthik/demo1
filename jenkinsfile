@@ -1,0 +1,32 @@
+pipeline {
+    agent any
+
+    stages {
+
+        stage('Checkout') {
+            steps {
+                echo 'Checking out source code'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                echo 'Building the application'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                echo 'Testing the application'
+            }
+        }
+
+        stage('PR Information') {
+            steps {
+                echo "Branch Name: ${env.BRANCH_NAME}"
+                echo "PR Number: ${env.CHANGE_ID}"
+                echo "Target Branch: ${env.CHANGE_TARGET}"
+            }
+        }
+    }
+}
